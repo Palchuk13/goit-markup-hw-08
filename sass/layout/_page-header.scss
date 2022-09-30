@@ -1,0 +1,21 @@
+.page-header {
+  position: relative;
+
+  border-bottom: 1px solid #ececec;
+}
+
+.page-header__nav {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  @media screen and (max-width: 767px) {
+    justify-content: space-between;
+    height: 60px;
+  }
+}
+
+.logo {
+  display: block;
+}

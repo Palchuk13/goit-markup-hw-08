@@ -1,0 +1,78 @@
+.client {
+  padding-top: $padding-indent;
+  padding-bottom: $padding-indent;
+
+  text-align: center;
+
+  @media screen and (min-width:1200px) {
+    padding-top: $padding-desktop;
+    padding-bottom: 85px;
+  }
+}
+
+.client__title {
+  @extend %section-title;
+  margin-bottom: 30px;
+
+  font-size: 28px;
+  line-height: 1.18;
+
+
+
+  @media screen and (min-width:1200px) {
+    margin-bottom: 50px;
+
+    font-size: 36px;
+    line-height: 1.16;
+  }
+}
+
+.client__list {
+  @extend %list;
+
+  display: flex;
+  flex-wrap: wrap;
+  margin: -15px;
+}
+
+.client__item {
+  width: calc((100% - 4 * 15px)/2);
+  margin: 15px;
+
+  @media screen and (min-width:768px) {
+    width: calc((100% - 6 * 15px)/3);
+    margin: 15px;
+  }
+
+  @media screen and (min-width:1200px) {
+    width: calc((100% - 12 * 15px)/6);
+    margin: 15px;
+  }
+
+}
+
+.company__link {
+  @extend %link;
+  @include centeredFlex();
+
+  height: 92px;
+  border: 1px solid #afb1b8;
+  border-radius: 4px;
+  fill: $icon-color;
+
+  transition: fill $animation, border-color $animation;
+
+  &:hover,
+  &:focus {
+    border-color: $accent-color;
+    fill: $accent-color;
+  }
+
+  @media screen and (min-width:768px) {
+    width: 226px;
+  }
+
+  @media screen and (min-width:1200px) {
+    width: 170px;
+  }
+}

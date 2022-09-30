@@ -1,0 +1,69 @@
+.filter {
+  padding-top: $padding-indent;
+  padding-bottom: $padding-indent;
+
+  @media screen and (min-width:1200px) {
+    padding-top: $padding-desktop;
+    padding-bottom: $padding-desktop;
+  }
+}
+
+.filter__list {
+  @extend %list;
+  margin-bottom: 50px;
+
+  @media screen and (min-width:768px) {
+    @include centeredFlex();
+  }
+}
+
+.filter__item {
+  display: inline-block;
+  margin-right: 8px;
+  margin-bottom: 30px;
+
+  &:nth-child(n+4) {
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width:768px) {
+    margin-bottom: 0;
+  }
+
+}
+
+.portfolio__list {
+  @extend %list;
+
+  @media screen and (min-width:768px) {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px;
+  }
+}
+
+.portfolio__item {
+  display: flex;
+  margin-bottom: $margin-indent;
+  background-color: $main-color;
+
+  &:last-child {
+    @media screen and (max-width:767px) {
+      margin-bottom: 0;
+    }
+  }
+
+  @media screen and (min-width:480px) {
+    width: 450px;
+  }
+
+  @media screen and (min-width:768px) {
+    width: calc((100% - 4 * 15px)/2);
+    margin: 15px;
+  }
+
+  @media screen and (min-width:1200px) {
+    width: calc((100% - 6 * 15px)/3);
+    margin: 15px;
+  }
+}
