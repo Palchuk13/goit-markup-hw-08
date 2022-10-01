@@ -15,7 +15,7 @@ html {
 }
 
 .page {
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   color: #757575;
   background-color: #ffffff;
   font-size: 14px;
@@ -116,9 +116,12 @@ img {
   }
 }
 
+header {
+  border-bottom: 1px solid #ececec;
+}
+
 .page-header {
   position: relative;
-  border-bottom: 1px solid #ececec;
 }
 
 .page-header__nav {
@@ -170,7 +173,6 @@ img {
 
 .menu-container {
   width: 100%;
-  height: 100vh;
 }
 @media screen and (max-width: 767px) {
   .menu-container {
@@ -178,6 +180,7 @@ img {
     top: 0;
     left: 0;
     z-index: 2;
+    overflow: scroll;
     padding: 48px 40px;
     background-color: #ffffff;
     font-weight: 500;
@@ -203,6 +206,30 @@ img {
     display: flex;
     margin-left: 93px;
   }
+}
+
+.menu-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  z-index: 3;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .menu-button {
+    display: none;
+  }
+}
+
+.js-menu-container.is-open {
+  background-color: #2f303a;
 }
 
 .nav-networks {
@@ -249,9 +276,14 @@ img {
   text-decoration: none;
   color: #2196f3;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 8px;
   line-height: 1.22;
   letter-spacing: 0.02em;
+}
+@media screen and (min-width: 480px) {
+  .nav-networks__link {
+    font-size: 18px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -412,7 +444,13 @@ img {
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 479px) {
+  .contact__link--biger {
+    font-size: 25px;
+    color: #2196f3;
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 767px) {
   .contact__link--biger {
     font-size: 34px;
     line-height: 1.17;
@@ -455,45 +493,32 @@ img {
   margin-left: auto;
   margin-right: auto;
   height: 400px;
-  max-width: 480px;
+  max-width: 1600px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: -webkit-gradient(linear, left top, right top, from(rgba(47, 48, 58, 0.4)), to(rgba(47, 48, 58, 0.4))), url(../../images/hero/hero-mob@1x.jpg);
-  background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(../../images/hero/hero-mob@1x.jpg);
-}
-@media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-  .hero-overlay {
-    background-image: -webkit-gradient(linear, left top, right top, from(rgba(47, 48, 58, 0.4)), to(rgba(47, 48, 58, 0.4))), url(../../images/hero/hero-mob@2x.jpg);
-    background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(../../images/hero/hero-mob@2x.jpg);
-  }
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(47, 48, 58, 0.4)), to(rgba(47, 48, 58, 0.4))), image-set(url("../images/hero/hero-mob@1x.jpg") 1x, url("../images/hero/hero-mob@2x.jpg") 2x);
+  background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), -webkit-image-set(url("../images/hero/hero-mob@1x.jpg") 1x, url("../images/hero/hero-mob@2x.jpg") 2x);
+  background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), image-set(url("../images/hero/hero-mob@1x.jpg") 1x, url("../images/hero/hero-mob@2x.jpg") 2x);
 }
 @media screen and (min-width: 481px) {
   .hero-overlay {
-    height: 400px;
-    max-width: 768px;
-    background-image: -webkit-gradient(linear, left top, right top, from(rgba(47, 48, 58, 0.4)), to(rgba(47, 48, 58, 0.4))), url(../../images/hero/hero-tab@1x.jpg);
-    background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(../../images/hero/hero-tab@1x.jpg);
-  }
-}
-@media screen and (min-width: 481px) and (min-device-pixel-ratio: 2), screen and (min-width: 481px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 481px) and (min-resolution: 192dpi), screen and (min-width: 481px) and (min-resolution: 2dppx) {
-  .hero-overlay {
-    background-image: -webkit-gradient(linear, left top, right top, from(rgba(47, 48, 58, 0.4)), to(rgba(47, 48, 58, 0.4))), url(../../images/hero/hero-tab@2x.jpg);
-    background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(../../images/hero/hero-tab@2x.jpg);
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(47, 48, 58, 0.4)), to(rgba(47, 48, 58, 0.4))), image-set(url("../images/hero/hero-tab@1x.jpg") 1x, url("../images/hero/hero-tab@2x.jpg") 2x);
+    background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), -webkit-image-set(url("../images/hero/hero-tab@1x.jpg") 1x, url("../images/hero/hero-tab@2x.jpg") 2x);
+    background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), image-set(url("../images/hero/hero-tab@1x.jpg") 1x, url("../images/hero/hero-tab@2x.jpg") 2x);
   }
 }
 @media screen and (min-width: 769px) {
   .hero-overlay {
-    height: 600px;
-    max-width: 1600px;
-    background-image: -webkit-gradient(linear, left top, right top, from(rgba(47, 48, 58, 0.4)), to(rgba(47, 48, 58, 0.4))), url(../../images/hero/hero-desk@1x.jpg);
-    background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(../../images/hero/hero-desk@1x.jpg);
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(47, 48, 58, 0.4)), to(rgba(47, 48, 58, 0.4))), image-set(url("../images/hero/hero-desk@1x.jpg") 1x, url("../images/hero/hero-desk@2x.jpg") 2x);
+    background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), -webkit-image-set(url("../images/hero/hero-desk@1x.jpg") 1x, url("../images/hero/hero-desk@2x.jpg") 2x);
+    background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), image-set(url("../images/hero/hero-desk@1x.jpg") 1x, url("../images/hero/hero-desk@2x.jpg") 2x);
   }
 }
-@media screen and (min-width: 769px) and (min-device-pixel-ratio: 2), screen and (min-width: 769px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 769px) and (min-resolution: 192dpi), screen and (min-width: 769px) and (min-resolution: 2dppx) {
+@media screen and (min-width: 1200px) {
   .hero-overlay {
-    background-image: -webkit-gradient(linear, left top, right top, from(rgba(47, 48, 58, 0.4)), to(rgba(47, 48, 58, 0.4))), url(../../images/hero/hero-desk@2x.jpg);
-    background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(../../images/hero/hero-desk@2x.jpg);
+    padding: 200px 0;
+    height: 600px;
   }
 }
 
@@ -517,39 +542,6 @@ img {
     font-size: 44px;
     line-height: 1.36;
   }
-}
-
-.menu-button {
-  position: relative;
-  z-index: 3;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  margin: 0;
-  padding: 0;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-.menu-button .icon-cross {
-  display: none;
-  fill: #2196f3;
-}
-@media screen and (min-width: 768px) {
-  .menu-button {
-    display: none;
-  }
-}
-
-.menu-button.is-open .icon-menu {
-  display: none;
-}
-
-.menu-button.is-open .icon-cross {
-  display: block;
-}
-.menu-button.is-open .icon-cross:hover, .menu-button.is-open .icon-cross:focus {
-  fill: #2196f3;
 }
 
 .hero-button {
