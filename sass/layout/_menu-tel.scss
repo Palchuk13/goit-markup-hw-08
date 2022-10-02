@@ -1,12 +1,11 @@
 .menu-container {
     width: 100%;
+    overflow: scroll;
 
     @media screen and (max-width:767px) {
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 2;
-        overflow: scroll;
 
         padding: 48px 40px;
 
@@ -25,36 +24,43 @@
     }
 
     @media screen and (min-width:768px) {
-        display: flex;
-        margin-left: 93px;
-    }
-}
-
-.menu-button {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    z-index: 3;
-
-    display: inline-flex;
-    margin: 0;
-    padding: 0;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-
-    @media screen and (min-width:768px) {
         display: none;
     }
 }
 
-.js-menu-container.is-open {
-    background-color: $dark-background-color;
+.menu-toggle {
+    min-height: 40px;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    outline: none;
 }
 
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none;
+    }
+}
 
+.menu-container .menu-toggle {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    fill: currentColor;
 
-
+    &:hover,
+    &:focus {
+        fill: $accent-color;
+    }
+}
 
 .nav-networks {
     @extend %list;

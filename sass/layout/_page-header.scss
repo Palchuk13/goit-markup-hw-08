@@ -4,17 +4,22 @@ header {
 
 .page-header {
   position: relative;
+
+  @include centeredFlex();
+
+  justify-content: space-between;
 }
+
 
 .page-header__nav {
   display: flex;
   align-items: center;
 
   width: 100%;
+  margin-left: 93px;
 
   @media screen and (max-width: 767px) {
-    justify-content: space-between;
-    height: 60px;
+    display: none;
   }
 }
 
