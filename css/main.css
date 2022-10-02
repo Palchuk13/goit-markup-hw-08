@@ -122,6 +122,19 @@ header {
 
 .page-header {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .page-header__nav {
@@ -132,13 +145,11 @@ header {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
+  margin-left: 93px;
 }
 @media screen and (max-width: 767px) {
   .page-header__nav {
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    height: 60px;
+    display: none;
   }
 }
 
@@ -173,14 +184,13 @@ header {
 
 .menu-container {
   width: 100%;
+  overflow: scroll;
 }
 @media screen and (max-width: 767px) {
   .menu-container {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 2;
-    overflow: scroll;
     padding: 48px 40px;
     background-color: #ffffff;
     font-weight: 500;
@@ -201,35 +211,44 @@ header {
 }
 @media screen and (min-width: 768px) {
   .menu-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin-left: 93px;
-  }
-}
-
-.menu-button {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  z-index: 3;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  margin: 0;
-  padding: 0;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-@media screen and (min-width: 768px) {
-  .menu-button {
     display: none;
   }
 }
 
-.js-menu-container.is-open {
-  background-color: #2f303a;
+.menu-toggle {
+  min-height: 40px;
+  min-width: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+.menu-container .menu-toggle {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  fill: currentColor;
+}
+.menu-container .menu-toggle:hover, .menu-container .menu-toggle:focus {
+  fill: #2196f3;
 }
 
 .nav-networks {
@@ -288,7 +307,7 @@ header {
 
 @media screen and (max-width: 767px) {
   .navigation__list {
-    margin-bottom: 300px;
+    margin-bottom: 200px;
   }
 }
 @media screen and (min-width: 768px) {
